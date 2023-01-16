@@ -20,7 +20,7 @@ class list{
 			head = NULL;
 			tail = NULL;
 		}
-		string setChange()
+		string getChange()
 		{
 			return changes;
 		}
@@ -63,7 +63,7 @@ int main ()
 		cout << " 7. Save Changes" <<endl;
 		cout << " 8. Exit Program" <<endl<<endl;
 		cout << "\t    Total Students: " <<obj.studentCount() <<endl;
-		cout << "\t    Changes: " << obj.setChange() <<endl;
+		cout << "\t    Changes: " << obj.getChange() <<endl;
 		cout << "------------------------------ " <<endl;
 		cout << " Please Select your option" <<endl;
 		option = getch();
