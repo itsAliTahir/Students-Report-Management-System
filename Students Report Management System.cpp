@@ -1,6 +1,6 @@
 #include <iostream>
-#include <conio.h>
 #include <string>
+#include <conio.h>
 #include <fstream>
 using namespace std;
 struct node{
@@ -47,7 +47,7 @@ int main ()
 	list obj;
 	string input;
 	int loop=1;
-	char option, method;
+	char option, method, sure;
 	obj.readFile(obj.studentCount2());
 	string search;
 	do
@@ -93,16 +93,40 @@ int main ()
 				obj.writeFile();
 				break;
 			case '8':
-				loop = 0;		
+				if (obj.getChange()!="Saved")
+				{
+					cout << "Some Changes Arent Saved" <<endl;
+					jump:
+					cout << "Press 1 to Exit Without Saving" <<endl;		
+					cout << "Press 2 to Save Changes and Exit" <<endl;
+					cout << "Press 3 to Go Back" <<endl;
+					sure = getch();
+					if (sure=='1') 	loop = 0;
+					else if (sure=='2')
+					{
+						obj.writeFile();
+						loop=0;
+					}
+					else if(sure == '3') loop=1;
+					else 
+					{
+						system("CLS");	
+						cout << "Invalid Option\nPlease Reselect an Option" <<endl;
+						goto jump;
+					}
+				}
+				else loop=0;
+				break;
 			default:
-				cout << "Incorrect Option";	
+				cout << "Invalid Option";	
 				break;
 		}
 		cout << endl;
-		system("pause");
+		if (loop == 1) system("pause");
 		system("CLS");
-		
-	}while(loop=1);
+	}while(loop==1);
+	cout << "Closing System";
+	return 0;
 }
 int list::inputCheckNum(string str)
 {
@@ -535,12 +559,12 @@ void list::sortAuto()
 void list::insertionSort()
 {
 	sorted = NULL;
-	node* current = head;
-    while (current != NULL)
+	node* temp = head;
+    while (temp != NULL)
     {
-        node* next = current->next;
-        sortedInsert(current);
-        current = next;
+        node* next = temp->next;
+        sortedInsert(temp);
+        temp = next;
     }
     head = sorted;
 }
