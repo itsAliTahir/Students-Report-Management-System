@@ -3,12 +3,14 @@
 #include <conio.h>
 #include <fstream>
 using namespace std;
+
 struct node{
 	string name, grade, status;
 	int sub1, sub2, sub3, total, reg, val;
 	float percentage;	
 	node *next;
 };
+
 class list{
 		node *head;
 		node *tail;
@@ -128,6 +130,7 @@ int main ()
 	cout << "Closing System";
 	return 0;
 }
+
 int list::inputCheckNum(string str)
 {
 	int num;
@@ -153,6 +156,7 @@ int list::inputCheckNum(string str)
 	}
 	return 0;
 }
+
 string list::inputCheckString(string str)
 {
 	bool flag = false;
@@ -176,6 +180,7 @@ string list::inputCheckString(string str)
 	}
 	return "N/A";
 }
+
 void list::addStudent()
 {
 	cout << "\n\t  Add Student" <<endl;
