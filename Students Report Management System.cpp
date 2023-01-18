@@ -491,7 +491,7 @@ void list::modify()
 				cout << "What do you want to change" <<endl;
 				cout << "1. Name" << endl <<"2. Registration Number" << endl <<"3. Subject 1 Marks" << endl <<"4. Subject 2 Marks" << endl <<"5. Subject 3 Marks" << endl ;
 				method = getch();
-				if (method != '1' && method != '2' && method !='3')
+				if (method != '1' && method != '2' && method !='3' && method !='4' && method !='5')
 				{
 					cout << "Invalid Input";
 					return;	
